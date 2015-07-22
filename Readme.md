@@ -10,7 +10,6 @@ Include obscurify in the module in which you would like to use it. The function 
 
 # example
 
-    // require and initialize
     var obscurify = require('obscurify');
 
     // obscurify!
