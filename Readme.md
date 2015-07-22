@@ -17,3 +17,11 @@ Include obscurify in the module in which you would like to use it. The function 
     var result = obscurify.pseudoEncrypt(1);
     console.log(result);                          // 1919821825
     console.log(obscurify.pseudoEncrypt(result)); // 1
+
+Note that this is using the default values to generate the obfuscated number and is less secure. The generation may be changed by choosing different constants (3 6-digit numbers) upon initialization of the module as follows:
+
+    var obscurify = require('obscurify')({
+     c1: 324324,
+     c2: 923405,
+     c3: 329742
+    });
