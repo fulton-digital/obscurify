@@ -30,29 +30,32 @@ var defaults = {
   c3: 102853
 };
 
-module.exports = function Obscurify(options) {
-  options = options || {};
-  options.c1 = options.c1 || defaults.c1;
-  options.c2 = options.c2 || defaults.c2;
-  options.c3 = options.c3 || defaults.c3;
+var options = {};
 
-  return {
+var init = function init(userOpts) {
+  userOpts = userOpts || {};
+  options.c1 = userOpts.c1 || defaults.c1;
+  options.c2 = userOpts.c2 || defaults.c2;
+  options.c3 = userOpts.c3 || defaults.c3;
+};
 
-    pseudoEncrypt: function pseudoEncrypt(input) {
-      var l1, l2, r1, r2;
-      // select 16 most significant bits
-      l1 = (input >> 16) & 65535;
-      // select 16 least significant bits
-      r1 = input & 65535;
-      for (var i = 0; i < 3; i++) {
-        l2 = r1;
-        r2 = l1 ^ ((((options.c1 * r1 + options.c2) % options.c3) / options.c3) * 32767);
-        l1 = l2;
-        r1 = r2;
-      }
-      return (r1 << 16) + l1;
-    }
 
-  };
+var pseudoEncrypt = function pseudoEncrypt(input) {
+  var l1, l2, r1, r2;
+  // select 16 most significant bits
+  l1 = (input >> 16) & 65535;
+  // select 16 least significant bits
+  r1 = input & 65535;
+  for (var i = 0; i < 3; i++) {
+    l2 = r1;
+    r2 = l1 ^ ((((options.c1 * r1 + options.c2) % options.c3) / options.c3) * 32767);
+    l1 = l2;
+    r1 = r2;
+  }
+  return (r1 << 16) + l1;
+};
 
+module.exports = {
+  init         : init,
+  pseudoEncrypt: pseudoEncrypt
 };
