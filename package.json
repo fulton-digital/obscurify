@@ -1,6 +1,6 @@
 {
   "name": "obscurify",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Obscure database ids.",
   "main": "index.js",
   "scripts": {
