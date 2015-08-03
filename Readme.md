@@ -26,6 +26,10 @@ Note that this is using the default values to generate the obfuscated number and
      c2: 923405,
      c3: 329742
     });
+    
+# inspiration
+
+This package uses a modified Feistel cipher in order to provide a reversible pseudo-encryption function on integers. Credit for this idea goes here: https://wiki.postgresql.org/wiki/Pseudo_encrypt
 
 # License
 
