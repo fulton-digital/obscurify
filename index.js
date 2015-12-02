@@ -41,6 +41,12 @@ var init = function init(userOpts) {
 
 
 var pseudoEncrypt = function pseudoEncrypt(input) {
+
+  // if uninitialized or initialized with wrong number of arguments, use defaults
+  if (Object.keys(options).length != 3) {
+    options = defaults;
+  }
+
   var l1, l2, r1, r2;
   // select 16 most significant bits
   l1 = (input >> 16) & 65535;
