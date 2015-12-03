@@ -29,7 +29,12 @@ Note that this is using the default values to generate the obfuscated number and
     
 # inspiration
 
-This package uses a modified Feistel cipher in order to provide a reversible pseudo-encryption function on integers. Credit for this idea goes here: https://wiki.postgresql.org/wiki/Pseudo_encrypt
+This package uses a modified Feistel cipher in order to provide a reversible pseudo-encryption function on integers. Credit for this idea goes here: [pseudo encrypt](https://wiki.postgresql.org/wiki/Pseudo_encrypt)
+
+The init values come from here:
+[Numerical recipes in C](http://apps.nrbook.com/c/index.html) (1992, by William H.Press, 2nd ed.), chapter 7: random numbers, p.284 and 285
+
+[Relevant StackOverflow discussion on changing constants](https://stackoverflow.com/questions/30689021/how-to-customize-the-output-of-the-postgres-pseudo-encrypt-function)
 
 # License
 
